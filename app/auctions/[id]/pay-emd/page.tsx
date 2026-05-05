@@ -50,8 +50,8 @@ export default function PayEMDPage() {
     
     setSubmitting(true)
     try {
-      await submitEmdPayment(auction.id, user.uid, paymentRef, {
-        name: user.displayName || "Unknown",
+      await submitEmdPayment(auction.id, user.id, paymentRef, {
+        name: user.user_metadata?.full_name || "Unknown",
         email: user.email || "Unknown"
       })
       toast.success("Payment details submitted! Waiting for admin approval.")
